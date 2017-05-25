@@ -1,0 +1,775 @@
+<RootScreen>:
+	PrimeiroScreen:
+	SegundoScreen:
+	TerceiroScreen:
+	SegundaScreen:
+	TercaScreen:
+	QuartaScreen:
+	QuintaScreen:
+	SextaScreen:
+	SabadoScreen:
+	DomingoScreen:
+	
+		
+<PrimeiroScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		#size_hint: (1,.1)
+		GridLayout:
+			cols: 1
+			padding: 0, 0
+			spacing: 0, 10
+			size_hint: (1,1)
+			Label:
+				text: "Pizzoide App!"
+				font_size: '26dp'
+				italic: True
+				bold: True
+			Button:
+				text: "Cardápio!"
+				font_size: '20dp'
+				background_normal: '1.png'
+				background_down: '2.png'
+				bold: True
+				on_release: root.manager.current = 'dois'
+				
+			Button:
+				text: "Promoção do dia!"
+				font_size: '20dp'
+				background_normal: '2.png'
+				background_down: '1.png'	
+				bold: True
+				on_release: root.dia()
+			Button:
+				text: "Monte sua pizza!"
+				font_size: '20dp'
+				background_normal: '1.png'
+				background_down: '2.png'
+				bold: True
+					
+			Button:
+				text: "Reclamações"
+				font_size: '20dp'	
+				background_normal: '2.png'
+				background_down: '1.png'
+				bold: True
+	StackLayout:
+		orientation: 'tb-lr'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Carrinho"
+				background_normal: 'cart.png'#mozi vai criar um fundo circular para esta imagem
+				background_down: 'cart.png'
+				on_press: root.manager.current = 'carrinho'
+
+
+<SegundoScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		GridLayout:
+			cols: 1
+			size_hint: (1, .1)
+			Label:
+				text: "Escolha a sua pizza!"
+				font_size: '36dp'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha[/b]\n[i]Sabor[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Muçarela[/b]\n[i]Muçarela, tomate\n e orégano[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					on_press: root.mucarela()
+					
+				Label:
+					text: "25,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Catupiry[/b]\n[i]Catupiry, azeitona\n e tomate[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					on_press: root.catupiry()
+					
+				Label:
+					text: "25,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					
+				Button:
+					text: "[b]Peito de peru[/b]\n[i]Muçarela, peito de peru\n e tomate[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png'
+					on_press: root.peru()
+					
+				Label:
+					text: "35,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					
+				Button:
+					text: "[b]Portuguesa[/b]\n[i]Muçarela, presunto,\n cebola e ovo[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					on_press: root.portuguesa()
+					
+				Label:
+					text: "27,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					
+				Button:
+					text: "[b]Toscana[/b]\n[i]Calabresa moída, muçarela\ne parmesão[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png'
+					on_press: root.toscana()
+					
+				Label:
+					text: "35,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+<TerceiroScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1, .1)#funfa no meu app com None, None
+			MyLabel1:#essa porcaria pode estar causando o sumico dos btns, achar uma dimensao ou posicao boa pra isso
+				text:":R$ {}".format(self.value)
+				font_size: '20dp'
+				text_size: self.width - 50, None
+				id: lb5
+		ScrollView:
+			size_hint: (.7, .8)
+			GridLayout:
+				cols: 2
+				size_hint: (.7, .8)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				padding: 0, 50
+				spacing: 0, 10
+				id: grid
+				Label:
+					text:"[b]Produto[/b]"
+					font_size:'20dp'
+					markup: True
+					size_hint_y: None
+					#height: self.texture_size[1]
+				Label:
+					text: "[b]Preço[/b]"
+					font_size:'20dp' 
+					markup: True
+					size_hint_y: None
+					#height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+<SegundaScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha da[/b]\n[i]Promoção[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Muçarela suprema[/b]\n[i]Muçarela, alho\n e bacon[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					#on_press: root.promo2()
+					
+				Label:
+					text: "25,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Carne seca[/b]\n[i]Carne seca e muçarela\n  ou catupiry[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					#on_press: root.promo1()
+					
+				Label:
+					text: "20,50"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+				
+			
+
+<TercaScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha da[/b]\n[i]Promoção[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Baiana[/b]\n[i]Calabresa,ovos, cebola\n e pimenta[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					#on_press: root.promo2()
+					
+				Label:
+					text: "25,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Bolonhesa[/b]\n[i]carne moída, ervilha, tomate\n e muçarela[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					#on_press: root.promo1()
+					
+				Label:
+					text: "30,50"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+<QuartaScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha da[/b]\n[i]Promoção[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Canadense[/b]\n[i]Lombo, catupiry\n e bacon[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					#on_press: root.promo2()
+					
+				Label:
+					text: "25,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Dois queijos[/b]\n[i]Muçarela e catupiry[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					#on_press: root.promo1()
+					
+				Label:
+					text: "23,50"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+				
+<QuintaScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha da[/b]\n[i]Promoção[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Escarola[/b]\n[i]Escarola e\n muçarela[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					#on_press: root.promo2()
+					
+				Label:
+					text: "20,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Frango[/b]\n[i]Frango e\n  muçarela[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					#on_press: root.promo1()
+					
+				Label:
+					text: "19,90"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+
+<SextaScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha da[/b]\n[i]Promoção[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Alho e óleo[/b]\n[i]Alho frito e\n muçarela[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					#on_press: root.promo2()
+					
+				Label:
+					text: "25,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Búfala[/b]\n[i]Muçarela de búfula,\nrúcula e tomate seco[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					#on_press: root.promo1()
+					
+				Label:
+					text: "30,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+<SabadoScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha da[/b]\n[i]Promoção[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Braga[/b]\n[i]Frango, palmito\n brócolis e muçarela[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					#on_press: root.promo2()
+					
+				Label:
+					text: "30,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Caipira[/b]\n[i]Frango, milho\n  e catupiry[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					#on_press: root.promo1()
+					
+				Label:
+					text: "1,50"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
+<DomingoScreen>:
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+            size: self.size
+            source: 'laranja.jpg'
+	StackLayout:
+		orientation: 'tb-lr'
+		ScrollView:
+			size_hint: (1, .9)
+			pos_hint:{'x': .0, 'y': .0}
+			GridLayout:
+				cols: 2
+				padding: 45, 50
+				spacing: 25, 50
+				size_hint: (1, 1)
+				size_hint_y:  None
+				height: self.minimum_height
+				width: 500
+				Label:
+					text: "[b]Escolha da[/b]\n[i]Promoção[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				Label:
+					text: "[b]Preço\n[/b] [i](R$)[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Espanhola[/b]\n[i]Atum, ervilha, cebola\n e muçarela[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'1.png'
+					background_down:'2.png' 
+					#on_press: root.promo2()
+					
+				Label:
+					text: "35,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+				
+				Button:
+					text: "[b]Bauru[/b]\n[i]Muçarela, presunto\n e tomate[/i]"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+					background_normal:'2.png'
+					background_down:'1.png'
+					#on_press: root.promo1()
+					
+				Label:
+					text: "22,00"
+					markup: True
+					font_size: '20dp'
+					size_hint_y: None
+					height: self.texture_size[1]
+	StackLayout:
+		orientation: 'tb-rl'
+		BoxLayout:
+			size_hint:(.25,.25)
+			Button:
+				#text: "Voltar!"
+				background_normal: 'back.png'
+				background_down: 'back.png'
+				on_press: root.manager.current = 'um'
